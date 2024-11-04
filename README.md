@@ -1,5 +1,5 @@
-# NLP---ANALYSIS-PREDICTION-OF-DISASTER-TWEETS
-Machine learning model for accurately predicting whether a tweet is about a real disaster. The dataset provided contains 10,000 tweets that have been manually classified as either real disaster-related or not. By leveraging natural language processing techniques, we seek to train a model that can automate this classification process effectively.
+# NLP---ANALYSIS-PREDICTION-OF-DISASTER-TWEETS-
+machine learning model for accurately predicting whether a tweet is about a real disaster. The dataset provided contains 10,000 tweets that have been manually classified as either real disaster-related or not. By leveraging natural language processing techniques, we seek to train a model that can automate this classification process effectively.
 
 Twitter has emerged as a crucial platform for real-time communication during emergencies. This has led to an increased interest from various organisations, such as disaster relief agencies and news outlets, in programmatically monitoring Twitter to identify relevant disaster-related information. However, discerning whether a tweet actually pertains to a real disaster or not can be challenging for machines due to the presence of figurative language and context ambiguity.
 
@@ -12,6 +12,8 @@ Featurization plays a crucial role in our model development. We employ technique
 For the classification task, we select the Multinomial Naive Bayes (MNB) algorithm as it has demonstrated effectiveness in text classification tasks. We evaluate the performance of MNB on different featurization techniques, employing evaluation metrics such as precision, recall, F1-score, and accuracy. Through comprehensive classification reports, confusion matrices, and discussions, we present the results of our experiments and analyze the model's performance.
 
 The project's findings contribute to the field of natural language processing for disaster-related tweets. We highlight the limitations of the current approach and provide suggestions for future work, including exploring advanced models or incorporating additional features to improve classification accuracy. This project serves as a valuable starting point for data scientists venturing into natural language processing and offers insights into the challenges of identifying real disaster tweets on social media platforms.
+
+      
 
 INTRODUCTION:
 
@@ -29,7 +31,12 @@ The findings of this project contribute to the field of natural language process
 
 By automating the classification of disaster-related tweets, this project aims to assist organisations in monitoring and responding to emergencies more effectively. It also serves as a valuable introduction to natural language processing for data scientists seeking to explore this domain.
 
-EXPLORATORY DATA ANALYSIS:
+
+
+
+
+    EXPLORATORY DATA ANALYSIS:
+
 In the initial phase of the project, we conducted an exploratory data analysis (EDA) to gain insights into the dataset and understand the characteristics of the Twitter data related to disaster announcements. The EDA helped us identify patterns, trends, and potential challenges that may influence the development of our machine learning model.
 
 We started by examining the distribution of disaster-related and non-disaster-related tweets in the dataset. Using bar charts, we visualised the count or percentage of tweets belonging to each category. The analysis revealed that the dataset contains a balanced representation of both disaster and non-disaster tweets, allowing for a robust model training process.
@@ -44,41 +51,73 @@ To address any class imbalance concerns, we also investigated the distribution o
 
 Finally, we examined the frequency of specific words or phrases in disaster-related and non-disaster-related tweets. By generating word frequency plots or histograms, we gained insights into the vocabulary used in each category. This analysis assisted in identifying key terms that are indicative of disaster-related tweets and may serve as important features for our machine learning model.
 
-Overall, the exploratory data analysis phase provided valuable insights into the dataset and highlighted important considerations for developing an effective machine learning model for predicting real disasters on Twitter. The visualisations and analyses conducted during this phase laid the foundation for subsequent stages of the project, including data preprocessing, feature engineering, and model selection.
+
+
+Overall, the exploratory data analysis phase provided valuable insights into the dataset and 
+highlighted important considerations for developing an effective machine learning model for predicting real disasters on Twitter. The visualisations and analyses conducted during this phase laid the foundation for subsequent stages of the project, including data preprocessing, feature engineering, and model selection.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Checking the Class Imbalance
 
- PRE PROCESSING :
-We Preprocess the data as shown below
+     PRE PROCESSING :
+
+We Preprocess the data as shown below 
 
 Original tweet: "This is an example tweet with some #hashtags and a link: https://example.com #NLP"
 
-Step 1: Stopword Removal After removing stopwords, the tweet becomes: "example tweet #hashtags link: https://example.com #NLP"
+Step 1: Stopword Removal
+After removing stopwords, the tweet becomes: "example tweet #hashtags link: https://example.com #NLP"
 
-Step 2: Removing Hyperlinks The hyperlinks in the tweet are removed, resulting in: "example tweet #hashtags"
+Step 2: Removing Hyperlinks
+The hyperlinks in the tweet are removed, resulting in: "example tweet #hashtags"
 
-Step 3: Removing HTML Code Any remaining HTML code is removed using BeautifulSoup, resulting in the same text: "example tweet #hashtags"
+Step 3: Removing HTML Code
+Any remaining HTML code is removed using BeautifulSoup, resulting in the same text: "example tweet #hashtags"
 
 Step 4: Decontracting Text : Decontracting involves expanding contracted words, such as "won't" to "will not." In this example, there are no contracted words, so the text remains the same: "example tweet #hashtags"
 
-Step 5: Removing Words with Numbers Words containing numbers are removed from the tweet. Since there are no words with numbers in this example, the text remains unchanged: "example tweet #hashtags"
+Step 5: Removing Words with Numbers
+Words containing numbers are removed from the tweet. Since there are no words with numbers in this example, the text remains unchanged: "example tweet #hashtags"
 
-Step 6: Removing Special Characters Special characters and symbols are removed from the tweet, leaving only alphabetic characters and spaces: "example tweet hashtags"
+Step 6: Removing Special Characters
+Special characters and symbols are removed from the tweet, leaving only alphabetic characters and spaces: "example tweet hashtags"
 
-Step 7: Removing Stock Market Tickers Stock market tickers, indicated by a dollar sign followed by letters, are removed from the tweet. Since there are no stock market tickers in this example, the text remains the same: "example tweet hashtags"
+Step 7: Removing Stock Market Tickers
+Stock market tickers, indicated by a dollar sign followed by letters, are removed from the tweet. Since there are no stock market tickers in this example, the text remains the same: "example tweet hashtags"
 
-Step 8: Removing Retweet Text The "RT" text, commonly used for retweets, is removed from the tweet. Since the example tweet does not contain retweet text, it remains unchanged: "example tweet hashtags"
+Step 8: Removing Retweet Text
+The "RT" text, commonly used for retweets, is removed from the tweet. Since the example tweet does not contain retweet text, it remains unchanged: "example tweet hashtags"
 
-Step 9: Removing Hashtags, Mentions, and Ellipsis The hashtags, mentions (starting with "@"), and ellipsis ("...") are removed from the tweet. In this example, the hashtag "#hashtags" is removed, resulting in: "example tweet"
+Step 9: Removing Hashtags, Mentions, and Ellipsis
+The hashtags, mentions (starting with "@"), and ellipsis ("...") are removed from the tweet. In this example, the hashtag "#hashtags" is removed, resulting in: "example tweet"
 
-Step 10: Tokenization The tweet is tokenized into individual words using the TweetTokenizer from the NLTK library. The resulting tokens are: ["example", "tweet"]
+Step 10: Tokenization
+The tweet is tokenized into individual words using the TweetTokenizer from the NLTK library. The resulting tokens are: ["example", "tweet"]
 
-Step 11: Lemmatization Each token is lemmatized to its base form using the WordNetLemmatizer from the NLTK library. In this example, no lemmatization is performed as the tokens are already in their base form: ["example", "tweet"]
+Step 11: Lemmatization
+Each token is lemmatized to its base form using the WordNetLemmatizer from the NLTK library. In this example, no lemmatization is performed as the tokens are already in their base form: ["example", "tweet"]
 
- FEATURIZATION :
+     FEATURIZATION :
+
+
 Featurization plays a crucial role in Natural Language Processing tasks as it involves transforming textual data into numerical representations that machine learning models can understand. In this section, we describe the featurization techniques employed to represent the Twitter data for our disaster prediction model.
 
-Bag-of-Words (BoW): We started by applying the Bag-of-Words technique to convert the tweet texts into numerical vectors. BoW represents each tweet as a vector, where each dimension corresponds to a unique word in the corpus. The value in each dimension indicates
+Bag-of-Words (BoW): We started by applying the Bag-of-Words technique to convert the tweet texts into numerical vectors. BoW represents each tweet as a vector, where each dimension corresponds to a unique word in the corpus. The value in each dimension indicates 
+
 
 the frequency or presence of the word in the tweet. By employing this technique, we captured the occurrence and distribution of words in the tweets.
 
@@ -96,10 +135,12 @@ It is important to note that the choice of featurization techniques depended on 
 
 The featurization phase laid the foundation for the subsequent stages of model training, evaluation, and optimization. The transformed feature vectors, along with the corresponding labels, formed the training data for our predictive model, ensuring that it can learn from the patterns and associations present in the Twitter data.
 
-MODELLING :
+    MODELLING :
+
 Selecting an appropriate model and evaluating its performance are critical steps in developing an effective machine learning solution. In this section, we discuss the process of model selection and evaluation for our disaster prediction task.
 
-Model Selection: To identify the most suitable model for our task, we experimented with several popular machine learning algorithms, including Logistic Regression, Naive Bayes, Random Forest, and Support Vector Machines (SVM). We trained each model using the featurized data and evaluated their performance using appropriate evaluation metrics.
+Model Selection: To identify the most suitable model for our task, we experimented with several popular machine learning algorithms, including Logistic Regression, Naive Bayes, 
+Random Forest, and Support Vector Machines (SVM). We trained each model using the featurized data and evaluated their performance using appropriate evaluation metrics.
 
 Model Evaluation: To assess the performance of our models, we employed various evaluation metrics, including accuracy, precision, recall, and F1-score. Accuracy measures the overall correctness of the model's predictions, while precision and recall focus on the model's ability to correctly identify true positive instances. F1-score provides a balanced measure of precision and recall. Additionally, we examined the Receiver Operating Characteristic (ROC) curve and calculated the Area Under the Curve (AUC) to assess the model's ability to discriminate between positive and negative instances.
 
@@ -109,33 +150,134 @@ By comparing the performance of different models based on the evaluation metrics
 
 Overall, model selection and evaluation were crucial in identifying the best-performing model, which would be used for predicting whether a given tweet is related to a real disaster or not. The chosen model demonstrated superior performance, as evidenced by the evaluation metrics and the ROC curve analysis.
 
-Next, we proceed to discuss the results and findings of our experiments, providing insights into the predictive power of our model and its implications for real-world applications. RESULTS:
+Next, we proceed to discuss the results and findings of our experiments, providing insights into the predictive power of our model and its implications for real-world applications.
+    RESULTS:
 
 These results below represent the performance metrics (precision, recall, F1-score) of the Multinomial Naive Bayes (NB) algorithm for three different featurization techniques: Bag of Words, Bag of Words (Bigrams), and TF-IDF.
 
 The precision metric measures the ability of the model to correctly identify positive instances, while the recall metric represents the model's ability to identify all relevant positive instances. The F1-score is the harmonic mean of precision and recall, providing a balanced measure of the model's performance.
 
-Overall, the Multinomial NB model performs well across all three featurization techniques, with accuracy ranging from 0.82 to 0.83. In terms of precision, the model achieves values between 0.68 and 0.92, indicating its ability to accurately predict both classes. The recall
+Overall, the Multinomial NB model performs well across all three featurization techniques, with accuracy ranging from 0.82 to 0.83. In terms of precision, the model achieves values between 0.68 and 0.92, indicating its ability to accurately predict both classes. The recall 
 
 values range from 0.79 to 0.87, indicating the model's ability to capture relevant instances from each class. The F1-scores range from 0.76 to 0.85, demonstrating the balance between precision and recall.
 
 These results suggest that all three featurization techniques provide valuable information for the Multinomial NB model, allowing it to effectively classify tweets as either related
-
+       
 Multinomial NB Results for Bag of Words:
 
-Precision Recall F1-Score Support Class 0 0.9 0.81 0.85 726 Class 1 0.71 0.84 0.77 416 Accuracy
 
-0.82 1142 Macro Avg 0.81 0.82 0.81 1142 Weighted Avg 0.83 0.82 0.82 1142 Multinomial NB Results for Bag of Words (Bigrams):
 
-Precision Recall F1-Score Support Class 0 0.91 0.8 0.85 734 Class 1 0.71 0.85 0.77 408 Accuracy
+Precision
+Recall
+F1-Score
+Support
+Class 0
+0.9
+0.81
+0.85
+726
+Class 1
+0.71
+0.84
+0.77
+416
+Accuracy
 
-0.82 1142 Macro Avg 0.81 0.83 0.81 1142 Weighted Avg 0.83 0.82 0.82 1142 Multinomial NB Results for TF-IDF:
 
-Precision Recall F1-Score Support Class 0 0.92 0.79 0.85 757 Class 1 0.68 0.87 0.76 385 Accuracy
 
-0.82 1142 Macro Avg 0.8 0.83 0.81 1142 Weighted Avg 0.84 0.82 0.82 1142
 
-USER REACTIONS ANALYSIS: The user reactions analysis was conducted to understand how users are responding to various content or events based on the predictions made by our machine learning model. The analysis included multiple visualizations to provide a comprehensive understanding of user reactions. The first method used was a confusion matrix, which displayed the relationship between predicted user reactions and true user reactions. This matrix helped identify the accuracy of the model's predictions and any patterns of misclassification. The second method involved analyzing the distribution of user reactions using a bar chart. This visualization provided an overview of the frequency of each predicted user reaction, allowing us to identify which reactions were more common among users. Lastly, grouped bar charts were used to compare correct and incorrect predictions for each user reaction. This comparison helped us assess the model's accuracy in predicting different user reactions. Overall, the analysis of user reactions provided valuable insights into user sentiment and preferences, enabling us to make informed decisions and improve user experience.
+0.82
+1142
+Macro Avg
+0.81
+0.82
+0.81
+1142
+Weighted Avg
+0.83
+0.82
+0.82
+1142
+Multinomial NB Results for Bag of Words (Bigrams):
+
+
+
+
+Precision
+Recall
+F1-Score
+Support
+Class 0
+0.91
+0.8
+0.85
+734
+Class 1
+0.71
+0.85
+0.77
+408
+Accuracy
+
+
+
+
+0.82
+1142
+Macro Avg
+0.81
+0.83
+0.81
+1142
+Weighted Avg
+0.83
+0.82
+0.82
+1142
+Multinomial NB Results for TF-IDF:
+
+
+
+
+Precision
+Recall
+F1-Score
+Support
+Class 0
+0.92
+0.79
+0.85
+757
+Class 1
+0.68
+0.87
+0.76
+385
+Accuracy
+
+
+
+
+0.82
+1142
+Macro Avg
+0.8
+0.83
+0.81
+1142
+Weighted Avg
+0.84
+0.82
+0.82
+1142
+
+
+USER REACTIONS ANALYSIS:
+The user reactions analysis was conducted to understand how users are responding to various content or events based on the predictions made by our machine learning model. The analysis included multiple visualizations to provide a comprehensive understanding of user reactions.
+The first method used was a confusion matrix, which displayed the relationship between predicted user reactions and true user reactions. This matrix helped identify the accuracy of the model's predictions and any patterns of misclassification.
+The second method involved analyzing the distribution of user reactions using a bar chart. This visualization provided an overview of the frequency of each predicted user reaction, allowing us to identify which reactions were more common among users.
+Lastly, grouped bar charts were used to compare correct and incorrect predictions for each user reaction. This comparison helped us assess the model's accuracy in predicting different user reactions.
+Overall, the analysis of user reactions provided valuable insights into user sentiment and preferences, enabling us to make informed decisions and improve user experience.
 
 CONCLUSION :
 
