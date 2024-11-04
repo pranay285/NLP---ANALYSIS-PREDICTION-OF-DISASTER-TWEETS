@@ -1,5 +1,5 @@
 # NLP---ANALYSIS-PREDICTION-OF-DISASTER-TWEETS
-machine learning model for accurately predicting whether a tweet is about a real disaster. The dataset provided contains 10,000 tweets that have been manually classified as either real disaster-related or not. By leveraging natural language processing techniques, we seek to train a model that can automate this classification process effectively.
+Machine learning model for accurately predicting whether a tweet is about a real disaster. The dataset provided contains 10,000 tweets that have been manually classified as either real disaster-related or not. By leveraging natural language processing techniques, we seek to train a model that can automate this classification process effectively.
 
 Twitter has emerged as a crucial platform for real-time communication during emergencies. This has led to an increased interest from various organisations, such as disaster relief agencies and news outlets, in programmatically monitoring Twitter to identify relevant disaster-related information. However, discerning whether a tweet actually pertains to a real disaster or not can be challenging for machines due to the presence of figurative language and context ambiguity.
 
